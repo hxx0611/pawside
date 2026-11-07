@@ -212,7 +212,15 @@
 
         <button class="btn ghost full" style="margin-top:10px" id="managePerms">管理网站权限（<span id="permCount2">0</span>）</button>
         <button class="btn ghost full" style="margin-top:6px" id="clearHistory">清空本机历史</button>
+        <div class="upd-row" id="updRow" hidden>
+          <div class="upd-main">
+            <b id="updTitle">有新版本</b>
+            <span id="updSub">去 Release 页下新的 ZIP，覆盖原来的文件夹</span>
+          </div>
+          <button class="btn ghost" id="btnUpdate">去更新</button>
+        </div>
         <p class="foot-note" id="versionNote">PawSide 是第三方工具，与 QwenPaw 官方无隶属关系。历史只存在本机。</p>
+        <p class="foot-note"><a class="foot-link" href="#" id="checkUpdate">检查更新</a></p>
       </div>
     </section>
 

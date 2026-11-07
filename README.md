@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="docs/img/panel-empty.png" width="300" alt="PawSide 侧栏面板">
-
 # 🐾 PawSide
 
 **在浏览器侧栏里，跟你自己的 QwenPaw 聊「眼前这一页」。**
@@ -9,12 +7,12 @@
 总结、全文翻译、填表、收藏到工作区 —— 不用复制粘贴，不用在窗口之间来回跳。
 
 [🎬 在线演示](https://hxx0611.github.io/pawside/) ·
-[⬇️ 下载 v0.4.0](https://github.com/hxx0611/pawside/releases/latest) ·
+[⬇️ 下载 v0.4.1](https://github.com/hxx0611/pawside/releases/latest) ·
 [🔧 怎么装](#-怎么装) ·
 [🧩 能干什么](#-能干什么) ·
 [🔌 连不上](#-连不上怎么办)
 
-![version](https://img.shields.io/badge/version-0.4.0-2f7d4b?style=flat-square)
+![version](https://img.shields.io/badge/version-0.4.1-2f7d4b?style=flat-square)
 ![manifest](https://img.shields.io/badge/manifest-v3-2f7d4b?style=flat-square)
 ![deps](https://img.shields.io/badge/%E4%BE%9D%E8%B5%96-%E4%B8%80%E4%B8%AA%E5%9C%A8%E8%B7%91%E7%9A%84%20QwenPaw-555?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-555?style=flat-square)
@@ -31,23 +29,30 @@
 
 装了 PawSide，你点侧栏里的「总结本页」，等几秒，答案就在旁边。
 
-**它不是 ChatGPT 套壳，也不是新模型。** 它没有自己的服务器、不收你一分钱、不上传任何东西 ——
 它只是把你眼前这一页，递给你**已经在跑的那个 QwenPaw**（本机 `127.0.0.1:8088` 或你自己的云端实例）。
 
-所以前提只有一个：**你得先有个 QwenPaw。** 没装的话，这扩展装了也只会跟你说「连不上」。🙂
+所以前提只有一个：**你得先有个 QwenPaw。**
 
 ---
 
 ## 🎬 长什么样
 
-| 打开面板 | 对话 | 填表 |
-|---|---|---|
-| <img src="docs/img/panel-empty.png" width="230"> | <img src="docs/img/panel-thread.png" width="230"> | <img src="docs/img/panel-form.png" width="230"> |
-| 先告诉你这一页能干什么 | 流式回答 + 复制/收藏/追问 | 逐项确认，最后一步你点 |
+<div align="center">
+
+<img src="docs/img/panel-empty.png" width="300" alt="PawSide 打开时先告诉你这一页能干什么">
+<br>
+<sub>打开就是这个样子 —— 先告诉你这一页能干什么，再让你决定</sub>
+
+</div>
+
+| 对话 | 填表 |
+|---|---|
+| <img src="docs/img/panel-thread.png" width="300"> | <img src="docs/img/panel-form.png" width="300"> |
+| 流式回答 + 复制 / 收藏 / 追问 | 逐项确认，最后一步你点 |
 
 | 收藏夹 | 设置（深色） |
 |---|---|
-| <img src="docs/img/panel-bookmarks.png" width="230"> | <img src="docs/img/panel-settings-dark.png" width="230"> |
+| <img src="docs/img/panel-bookmarks.png" width="300"> | <img src="docs/img/panel-settings-dark.png" width="300"> |
 | 收藏直接落到你的 QwenPaw 工作区 | 三步连接向导，报错翻成人话 |
 
 想自己点两下？👉 **[在线演示](https://hxx0611.github.io/pawside/)** —— 界面是真的，数据是编的，随便点不会炸。
@@ -78,17 +83,20 @@
 **🕘 历史在本地**
 对话存 `chrome.storage.local`，最多 40 条。不上传、不同步、不统计。
 
+**⬆️ 有新版本会告诉你一声**
+设置页一天问一次 GitHub，发现新版就在下面挂一行，齿轮上也点个小点 —— 不然你根本不会打开设置页。
+点「去更新」跳 Release，你自己下新的 ZIP 覆盖掉。
+它**不会**自己下载替换：手动加载的扩展没这个权限，说「自动更新」是骗人的。
+
 ---
 
 ## 🔧 怎么装
-
-两分钟，真的。
 
 1. **确认 QwenPaw 在跑**
    浏览器打开 `http://127.0.0.1:8088` 能出界面就行。云端实例也可以，后面填地址。
 
 2. **下载 ZIP 并解压**
-   到 [Releases](https://github.com/hxx0611/pawside/releases/latest) 下 `pawside-0.4.0.zip`，解压到一个**你不会再动它**的目录。
+   到 [Releases](https://github.com/hxx0611/pawside/releases/latest) 下 `pawside-0.4.1.zip`，解压到一个**你不会再动它**的目录。
 
 3. **加载**
    Chrome 地址栏进 `chrome://extensions` → 右上角打开「开发者模式」→「加载已解压的扩展程序」→

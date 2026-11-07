@@ -49,6 +49,7 @@ export function openSheet({ html, actions = {}, onCancel = null, dismissible = t
 
   if (sheetResolve) sheetResolve(null);
   sheet.hidden = false;
+  document.body.classList.add("sheet-open");
   body.innerHTML = html;
   sheet.dataset.dismissible = dismissible ? "1" : "0";
   requestAnimationFrame(() => sheet.classList.add("in"));
@@ -85,6 +86,7 @@ export function openSheet({ html, actions = {}, onCancel = null, dismissible = t
 export function closeSheet() {
   const sheet = $("#sheet");
   if (!sheet) return;
+  document.body.classList.remove("sheet-open");
   sheet.classList.remove("in");
   setTimeout(() => {
     if (!sheet.classList.contains("in")) sheet.hidden = true;

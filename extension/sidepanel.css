@@ -132,6 +132,12 @@ a { color: var(--accent); }
 .icon-btn:hover { background: var(--soft2); }
 .icon-btn svg { width: 16px; height: 16px; }
 .icon-btn.on { background: var(--soft2); }
+/* 有新版本时在齿轮上挂一个小点 —— 否则没人会主动点进设置页 */
+.icon-btn.dot::after {
+  content: ""; position: absolute; top: 3px; right: 3px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ok); box-shadow: 0 0 0 2px var(--bg);
+}
 
 .badge {
   position: absolute;
@@ -693,6 +699,21 @@ a { color: var(--accent); }
 .switch.sm input:checked + i::after { transform: translateX(13px); }
 
 .foot-note { margin: 14px 2px 0; color: var(--faint); font-size: 10px; line-height: 1.6; }
+.foot-link { color: var(--muted); text-decoration: none; border-bottom: 1px dashed var(--line); }
+.foot-link:hover { color: var(--ink2); }
+
+/* ------------------------------ update row ------------------------------ */
+.upd-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 12px; padding: 9px 10px;
+  border: 1px solid rgba(47,125,75,.24); border-radius: 10px;
+  background: rgba(47,125,75,.06);
+}
+.upd-row[hidden] { display: none; }
+.upd-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.upd-main b { font-size: 11.5px; font-weight: 600; }
+.upd-main span { font-size: 10.5px; color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.upd-row .btn { flex: 0 0 auto; padding: 5px 10px; font-size: 11px; }
 
 .site-item { border-bottom: 1px solid var(--line2); border-radius: 0; padding: 9px 2px; }
 .site-host { flex: 1; min-width: 0; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -785,11 +806,13 @@ a { color: var(--accent); }
   opacity: 0;
   pointer-events: none;
   transition: opacity .18s, transform .18s;
-  z-index: 30;
+  z-index: 50;
   text-align: center;
 }
 html.dark .toast { background: rgba(240,242,245,.94); color: #141518; }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
+/* 弹层在场时，toast 从底部挪到顶部：底部是「取消 / 填入」，被盖住等于点不到 */
+body.sheet-open .toast { bottom: auto; top: 10px; }
 
 /* narrow panel */
 @media (max-width: 320px) {

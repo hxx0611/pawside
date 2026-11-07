@@ -35,6 +35,7 @@ import {
 } from "./lib/ui.js";
 import * as store from "./lib/store.js";
 import * as pageApi from "./lib/page.js";
+import { checkLatest, isNewer } from "./lib/update.js";
 
 const S = {
   settings: null,
@@ -80,6 +81,42 @@ async function boot() {
   setView("empty");
 
   $("#versionNote").textContent = `PawSide v${chrome.runtime.getManifest().version} · 第三方工具，与 QwenPaw 官方无隶属关系。历史只存在本机。`;
+  $("#checkUpdate").onclick = (e) => {
+    e.preventDefault();
+    runUpdateCheck(true);
+  };
+  runUpdateCheck(false);
+}
+
+/* ------------------------------ update check ------------------------------ */
+// 发现新版本就摆一行出来，点「去更新」开 Release 页。
+// 查不到（断网、限流、被墙）什么都不说 —— 版本检查失败不该变成一个错误提示。
+
+async function runUpdateCheck(force) {
+  const cur = chrome.runtime.getManifest().version;
+  const link = $("#checkUpdate");
+  if (force) link.textContent = "正在检查…";
+
+  const rec = await checkLatest(force);
+  const row = $("#updRow");
+  const newer = Boolean(rec?.latest) && isNewer(rec.latest, cur);
+
+  $("#btnSettings").classList.toggle("dot", newer);
+  if (newer) {
+    row.hidden = false;
+    $("#updTitle").textContent = `v${rec.latest} 可用（你在 v${cur}）`;
+    $("#updSub").textContent = rec.notes?.length ? rec.notes[0].slice(0, 40) : "去 Release 页下新的 ZIP，解压覆盖原文件夹";
+    $("#btnUpdate").onclick = () => chrome.tabs.create({ url: rec.url });
+  } else {
+    row.hidden = true;
+  }
+
+  if (!force) return;
+  link.textContent = rec?.error
+    ? "检查更新（没连上，稍后再试）"
+    : newer
+      ? `v${rec.latest} 可用 · 再看一次`
+      : `已是最新（v${cur}）`;
 }
 
 function bindUi() {

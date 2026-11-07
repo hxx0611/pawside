@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "PawSide",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Your own QwenPaw agent in the browser side panel: summarize, translate, clip pages, fill forms. Local-first.",
   "minimum_chrome_version": "116",
   "permissions": [
