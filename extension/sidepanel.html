@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PawSide</title>
+<link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-paw" viewBox="0 0 24 24">
+    <ellipse cx="12" cy="15.6" rx="4.7" ry="3.9"/>
+    <circle cx="6.5" cy="10.3" r="2.15"/>
+    <circle cx="12" cy="8.4" r="2.15"/>
+    <circle cx="17.5" cy="10.3" r="2.15"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <circle cx="12" cy="12" r="8.2"/><path d="M12 7.6V12l3 1.9"/>
+  </symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M12 5.5v13M5.5 12h13"/>
+  </symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round">
+    <path d="M6.5 4.5h11v15l-5.5-4.4-5.5 4.4z"/>
+  </symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+  </symbol>
+  <symbol id="i-sum" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/>
+  </symbol>
+  <symbol id="i-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 5.5h8M7.5 5.5v1.6c0 3.2-2.2 5.8-5 6.8"/>
+    <path d="M5.6 10.8c.9 2.6 2.8 4.4 5.2 5.1"/>
+    <path d="M12.8 20.2l3.7-8.4 3.7 8.4M14.2 17.4h4.6"/>
+  </symbol>
+  <symbol id="i-form" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M5 3.8h14v16.4H5z" stroke-linecap="round"/>
+    <path d="M8.2 8.4h7.6M8.2 12h7.6M8.2 15.6h4.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 8.5h12M13.5 5.5l3 3-3 3"/>
+    <path d="M19.5 15.5h-12M10.5 12.5l-3 3 3 3"/>
+  </symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.5 5.5l7 6.5-7 6.5"/>
+  </symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5.5M6 11.5L12 5.5l6 6"/>
+  </symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.5 5.5L8 12l6.5 6.5"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M12 3.2l7 2.9v5.7c0 4.3-2.9 7.3-7 8.7-4.1-1.4-7-4.4-7-8.7V6.1z"/>
+  </symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+    <rect x="8.5" y="8.5" width="11" height="11" rx="2"/>
+    <path d="M15.5 8.5v-2a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/>
+  </symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 4.5h5.5V10M19 5l-7.5 7.5"/>
+    <path d="M18 14.5v4a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6h4"/>
+  </symbol>
+</svg>
+
+<div class="app" id="app">
+
+  <header class="bar">
+    <div class="bar-main" id="barMain">
+      <div class="brand">
+        <svg><use href="#i-paw"/></svg><b>PawSide</b>
+      </div>
+      <button class="pill" id="pill" title="连接状态"><i></i><span id="pillText">检测中</span></button>
+      <div class="icons">
+        <button class="icon-btn" id="btnHistory" title="历史"><svg><use href="#i-clock"/></svg></button>
+        <button class="icon-btn" id="btnNew" title="新对话"><svg><use href="#i-plus"/></svg></button>
+        <button class="icon-btn" id="btnBook" title="收藏夹"><svg><use href="#i-bookmark"/></svg><span class="badge" id="bookBadge" hidden></span></button>
+        <button class="icon-btn" id="btnSettings" title="设置"><svg><use href="#i-gear"/></svg></button>
+      </div>
+    </div>
+    <div class="bar-sub" id="barSub" hidden>
+      <button class="icon-btn" id="backBtn" title="返回"><svg><use href="#i-back"/></svg></button>
+      <span class="subtitle" id="subTitle">历史</span>
+    </div>
+  </header>
+
+  <div class="views" id="views">
+
+    <!-- empty -->
+    <section class="view on" id="v-empty">
+      <div class="empty">
+        <h1>想了解这个网页的什么？</h1>
+        <p class="lede">发消息时会把当前网页一起交给你的 agent。</p>
+
+        <div class="pagecard">
+          <div class="page-head" id="pageHead" title="查看上下文详情">
+            <span class="fav" id="pageFav">?</span>
+            <div class="page-txt">
+              <div class="page-title" id="pageTitle">当前标签页</div>
+              <div class="page-domain" id="pageDomain">—</div>
+            </div>
+            <svg style="width:13px;height:13px;color:var(--faint);flex:0 0 auto"><use href="#i-chev"/></svg>
+          </div>
+          <div class="page-meta" id="pageMeta" hidden>
+            <span>已提取 <b id="metaChars">0</b> 字</span>
+            <span>段落 <b id="metaParas">0</b></span>
+            <span id="metaSel">无选区</span>
+          </div>
+          <div class="tiles">
+            <button class="tile" data-act="summary"><svg><use href="#i-sum"/></svg>总结本页</button>
+            <button class="tile" data-act="translate"><svg><use href="#i-tr"/></svg>全文翻译</button>
+            <button class="tile" data-act="clip"><svg><use href="#i-bookmark"/></svg>收藏本页</button>
+          </div>
+          <button class="form-quick" id="formQuick" hidden></button>
+        </div>
+
+        <div class="suggests">
+          <button class="sug" data-sug="这篇讲了什么？"><svg><use href="#i-chev"/></svg>这篇讲了什么？</button>
+          <button class="sug" data-sug="有哪些要点值得记下来？"><svg><use href="#i-chev"/></svg>有哪些要点值得记下来？</button>
+        </div>
+
+        <div class="permcard">
+          <div class="perm-head">
+            <svg><use href="#i-shield"/></svg>PawSide 可以读这个浏览器
+            <button id="openPerms">设置</button>
+          </div>
+          <div class="perm-stat">
+            <span class="okdot" id="permDot"></span>已允许 <b id="permCount">0</b> 个网站 · <span id="permConn">未连接</span>
+          </div>
+          <button class="perm-add" id="allowBtn">＋ 允许读取当前网站</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- thread -->
+    <section class="view" id="v-thread">
+      <div class="msgs" id="msgs"></div>
+    </section>
+
+    <!-- history -->
+    <section class="view" id="v-history">
+      <div class="pane" id="historyList"></div>
+    </section>
+
+    <!-- bookmarks -->
+    <section class="view" id="v-book">
+      <div class="pane" id="bookList"></div>
+    </section>
+
+    <!-- settings -->
+    <section class="view" id="v-settings">
+      <div class="pane">
+        <div class="conn-card">
+          <div class="conn-row">
+            <span class="sdot" id="connDot"></span>
+            <div style="min-width:0">
+              <div class="conn-title" id="connTitle">未连接</div>
+              <div class="conn-sub" id="connSub">—</div>
+            </div>
+            <button class="btn mini" id="retest">重测</button>
+          </div>
+        </div>
+
+        <div class="sect-title">连接</div>
+        <label class="field"><span>服务地址</span>
+          <input id="setBase" type="text" spellcheck="false" placeholder="http://127.0.0.1:8088" />
+        </label>
+        <p class="hint-line" id="setBaseHint">填 QwenPaw 网页后台的地址，不带尾部斜杠。</p>
+        <label class="field"><span>Agent</span>
+          <select id="setAgent"><option value="default">default</option></select>
+        </label>
+
+        <details class="sub" id="authBox">
+          <summary>授权（云端实例通常需要）</summary>
+          <button class="btn ghost full" id="grabToken" style="margin:6px 0 4px">从已登录的后台读取令牌</button>
+          <p class="hint-line" id="grabHint">先在浏览器里登录一次这个地址的网页后台，再点上面这个按钮。</p>
+          <div id="grabMsg" class="probe"></div>
+          <label class="field" style="margin-top:8px"><span>访问令牌</span>
+            <input id="setToken" type="password" placeholder="留空表示本机实例未开鉴权" />
+          </label>
+          <label class="field" style="margin-top:6px"><span>用户名</span>
+            <input id="loginUser" type="text" autocomplete="username" placeholder="仅自建且开了鉴权的实例" />
+          </label>
+          <label class="field" style="margin-top:6px"><span>密码</span>
+            <input id="loginPass" type="password" autocomplete="current-password" placeholder="只用于换令牌，不保存" />
+          </label>
+          <button class="btn ghost full" id="getToken" style="margin-top:6px">用账号密码换令牌</button>
+          <div id="loginMsg" class="probe"></div>
+        </details>
+
+        <button class="btn primary full" id="saveConn" style="margin-top:8px">保存并检测</button>
+
+        <div class="sect-title">外观</div>
+        <div class="seg" id="themeSeg">
+          <button data-theme="light">浅色</button>
+          <button data-theme="dark">深色</button>
+          <button data-theme="auto">跟随系统</button>
+        </div>
+
+        <div class="sect-title">阅读</div>
+        <div class="toggle-row">
+          <div><b>划词翻译</b><span>选中文字后出气泡（需授权全部网站）</span></div>
+          <label class="switch"><input type="checkbox" id="optSelection" /><i></i></label>
+        </div>
+        <div class="toggle-row">
+          <div><b>默认附带页面</b><span>可在输入框临时关掉</span></div>
+          <label class="switch"><input type="checkbox" id="optAttach" checked /><i></i></label>
+        </div>
+
+        <button class="btn ghost full" style="margin-top:10px" id="managePerms">管理网站权限（<span id="permCount2">0</span>）</button>
+        <button class="btn ghost full" style="margin-top:6px" id="clearHistory">清空本机历史</button>
+        <p class="foot-note" id="versionNote">PawSide 是第三方工具，与 QwenPaw 官方无隶属关系。历史只存在本机。</p>
+      </div>
+    </section>
+
+    <!-- permissions -->
+    <section class="view" id="v-perms">
+      <div class="pane">
+        <p class="hint-line" style="margin:0 2px 4px">只在你点开面板或点击动作时读取页面。撤销后可随时再授权。</p>
+        <div id="siteList"></div>
+        <button class="btn ghost full" style="margin-top:10px" id="addSite">＋ 添加网站</button>
+        <p class="foot-note">未授权的站点仍可对话，只是读不到正文。本机 QwenPaw 的地址不受影响。</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="dock" id="dock">
+    <div class="toolbar" id="toolbar" hidden>
+      <button class="tool" data-act="summary"><svg><use href="#i-sum"/></svg>总结</button>
+      <button class="tool" data-act="translate"><svg><use href="#i-tr"/></svg>翻译</button>
+      <button class="tool" data-act="fanti"><svg><use href="#i-swap"/></svg>繁简</button>
+      <button class="tool" data-act="clip"><svg><use href="#i-bookmark"/></svg>收藏</button>
+      <button class="tool" data-act="form"><svg><use href="#i-form"/></svg>填表</button>
+    </div>
+    <div class="attach" id="attachRow">
+      <span class="mini-fav" id="attFav">?</span>
+      <span class="att-title" id="attTitle">未连接页面</span>
+      <span class="att-lab" id="attLab">附带</span>
+      <label class="switch sm" style="margin-left:auto"><input type="checkbox" id="attachToggle" checked /><i></i></label>
+    </div>
+    <div class="inputrow">
+      <textarea id="input" rows="1" placeholder="问问 PawSide…"></textarea>
+      <button class="send" id="send" title="发送"><svg><use href="#i-up"/></svg></button>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-bd" id="sheetBd"></div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script type="module" src="sidepanel.js"></script>
+</body>
+</html>

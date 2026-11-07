@@ -1,0 +1,16 @@
+# 打包产物走 Release，不进仓库
+dist/
+*.zip
+
+# 测试与环境
+spike/*.log
+spike/v2-*.png
+spike/v3-*.png
+spike/v4-*.png
+spike/tmp/
+__pycache__/
+*.pyc
+
+# 系统
+.DS_Store
+Thumbs.db
